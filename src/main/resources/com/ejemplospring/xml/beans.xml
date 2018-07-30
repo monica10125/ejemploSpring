@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:flow="http://www.springframework.org/schema/webflow-config"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jms="http://www.springframework.org/schema/jms"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:osgi="http://www.springframework.org/schema/osgi"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+          http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
+          http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+          http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.3.xsd
+          http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd
+          http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-1.2.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
+">
+    
+    <bean id="mundo" class="com.ejemplospring.beans.Mundo">
+        <property name="holaMundo" value="Hola Mundo!"></property>
+
+    </bean>
+        <bean id="persona" class="com.ejemplospring.beans.Persona">
+       <!-- Objeto Persona 
+              <constructor-arg value="1"></constructor-arg>
+             <constructor-arg value="Monica"></constructor-arg>
+              <constructor-arg value="Chiquis"></constructor-arg>
+              esta es la del ejemplo de2 constructores   
+                <constructor-arg type="int"  value="10"></constructor-arg>  
+                
+            -->  
+            <property name="pais" ref="pais"></property>
+            <property name="codigo" value="12"></property>
+            <property name="nombre" value="Monica"></property>
+            <property name="sobrenombre" value="chiquis"></property>
+            <!-- la ref indica que utilizara el bean de pais -->
+                  
+    </bean>
+    <bean id="pais" class="com.ejemplospring.beans.Pais">
+       
+           <!-- <property name="codigoPais" value="12"></property>
+          <property name="nombrePais" value="Mexico"></property>-->
+        <constructor-arg   index="0"  value="13"></constructor-arg>
+          <constructor-arg index="1" value="Mexico"></constructor-arg>
+           <property name="ciudad" ref="ciudad"></property>
+      </bean>
+    
+    <bean id="ciudad" class="com.ejemplospring.beans.Ciudad">
+         <constructor-arg  value="Guadalajara"></constructor-arg>
+        
+    </bean>
+        
+
+</beans>
